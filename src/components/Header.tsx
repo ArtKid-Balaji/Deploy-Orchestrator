@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { PlusCircle, RefreshCw, Settings, Bell, MoreVertical } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface HeaderProps {
   activeTab: string;
@@ -49,6 +50,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </div>
           </div>
           <div className="flex items-center space-x-1">
+            <ThemeSwitcher />
             <Button variant="outline" size="icon" onClick={handleRefresh} disabled={refreshing}>
               <RefreshCw size={16} className={refreshing ? 'animate-spin' : ''} />
             </Button>
